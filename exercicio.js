@@ -66,7 +66,7 @@ function ackermann(m, n) {
 }
 
 function soma(array){
-    let aux = array
+    let aux = array.slice();
     if(aux.length == 0){
         return 0
     }
@@ -75,20 +75,32 @@ function soma(array){
 
 
 function produto(array){
-    let aux = array
+    let aux = array.slice();
     if(aux.length == 0){
         return 1
     }
-    return aux.pop() * produto(aux)
+    let num = aux.pop()
+
+    return num * produto(aux)
 }
 
-console.log("Multiplicação de Naturais: " + multiplicacaoNaturais(6,4));
-console.log("Soma com Incremento: " + somaIncremento(3,2))
-console.log("Soma Divisão: " + somaDivisao(2))
-console.log("Inversão String: " + inversaoString("Hello"))
-console.log("F(n) = " + seqGen(3));
-console.log("Ackerman: " + ackermann(1,3))
+function palindromo(texto){
+    let tamanho = texto.length -1;
+    let palavraInvertida = "" + auxInversaoString(texto, tamanho);
+    
+    return texto === palavraInvertida;
+}
 
-let array = [1,2,3]
-console.log("Soma: " + soma(array))
-console.log("Produto: " + produto(array))
+
+
+console.log("1) Multiplicação de Naturais: " + multiplicacaoNaturais(6,4));
+console.log("2) Soma com Incremento: " + somaIncremento(3,2))
+console.log("3) Soma Divisão: " + somaDivisao(2))
+console.log("4) Inversão String: " + inversaoString("Hello"))
+console.log("5) F(n) = " + seqGen(3));
+console.log("6) Ackerman: " + ackermann(1,3))
+
+let array = [4,5]
+console.log("7.1) Soma: " + soma(array))
+console.log("7.2) Produto: " + produto(array))
+console.log("8) Palíndromo: " + palindromo("semaforo"))
